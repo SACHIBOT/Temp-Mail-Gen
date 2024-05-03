@@ -9,7 +9,7 @@ This is an unofficial module and is not affiliated with or endorsed by [https://
 ## Installation
 
 ```
-npm install temp-mail-gen
+npm install @black-king/temp-mail-gen
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ npm install temp-mail-gen
 **Create an email:**
 
 ```javascript
-const TempMailGenerator = require('temp-mail-gen');
+const TempMailGenerator = require('@black-king/temp-mail-gen');
 
 const tempMailGen = new TempMailGenerator();
 
