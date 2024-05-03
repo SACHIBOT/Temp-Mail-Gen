@@ -1,0 +1,16 @@
+{
+    "name": "temp-mail-gen",
+    "version": "1.0.0",
+    "description": "A temp mail generator script using OOP concepts",
+    "main": "TempMailGenerator.js",
+    "scripts": {
+      "start": "node TempMailGenerator.js",
+      "test": "node test.js"
+    },
+    "author": "Sachibot",
+    "license": "MIT",
+    "dependencies": {
+      "axios": "^0.27.2",
+      "turndown": "latest"
+    }
+  }
