@@ -17,9 +17,14 @@ class TempMailGenerator {
     }
   }
 
-  async generateEmail() {
+  async getDomain() {
     const domains = await this.getDomains()
     const randomDomain = domains[Math.floor(Math.random() * domains.length)];
+    return randomDomain;
+  }
+
+  async generateEmail() {
+    const randomDomain = await this.getDomain()
     const emailName = this.generateRandomString(30);
     this.email = `${emailName}${randomDomain}`;
     return this.email;
@@ -39,7 +44,22 @@ class TempMailGenerator {
   async checkMessages(email) {
     try {
       const response = await axios.get(`${this.baseUrl}/emails?inbox=${email}`);      
-      return response.data.data;
+      if(response.data?.data){
+        let messages = response.data.data;
+
+        messages.forEach((message) => {
+          if (message.attachments.length > 0) {
+            message.attachments.forEach((attachment) => {
+              attachment.url = `https://tempmail.email/api/emails/${message.id}/attachments/${attachment.id}`;
+            });
+          }
+        });
+
+        return messages;
+      }else{
+        console.error(`Error checking messages: response.data.data not found!!`);
+        return { messages: [] };
+      }
     } catch (error) {
       if (error.response && error.response.status === 404) {
         return { messages: [] };

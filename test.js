@@ -20,7 +20,6 @@ const tempMailGen = new TempMailGenerator();
 
     // If you want message content as html
     console.log("\n==========================================\n")
-    
     console.log('Html:', content);
 
     //if you want message content as markdown

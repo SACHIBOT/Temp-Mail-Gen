@@ -65,6 +65,7 @@ const tempMailGen = new TempMailGenerator();
 
       // If you want message content as HTML
       console.log("\n==========================================\n");
+      console.log('Html:', content);
 
       // If you want message content as markdown
       const TurndownService = require('turndown'); // make sure to install it, npm install turndown
@@ -101,6 +102,7 @@ If you want to get new emails from older emails you generated, try this modifica
 
       // If you want message content as HTML
       console.log("\n==========================================\n");
+      console.log('Html:', content);
 
       // If you want message content as markdown
       const TurndownService = require('turndown'); // make sure to install it, npm install turndown
