@@ -58,14 +58,14 @@ class TempMailGenerator {
         return messages;
       }else{
         console.error(`Error checking messages: response.data.data not found!!`);
-        return { messages: [] };
+        return [];
       }
     } catch (error) {
       if (error.response && error.response.status === 404) {
-        return { messages: [] };
+        return [];
       } else {
         console.error(`Error checking messages: ${error.message}`);
-        return { messages: [] };
+        return [];
       }
     }
   }
